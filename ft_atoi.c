@@ -6,7 +6,7 @@
 /*   By: cwastche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 15:36:23 by cwastche          #+#    #+#             */
-/*   Updated: 2021/07/28 14:09:37 by cwastche         ###   ########.fr       */
+/*   Updated: 2021/07/28 14:30:07 by cwastche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,18 @@ int	ft_atoi(const char *str)
 
 	res = 0;
 	sign = 1;
-	if (ft_overflow((char *)str))
-		return (-1);
 	while ((*str >= 9 && *str <= 13) || *str == ' ')
 		str++;
 	if (*str == '-')
 		sign = -1;
 	if (*str == '-' || *str == '+')
 		str++;
+	if (ft_overflow((char *)str))
+	{
+		if (sign == 1)
+			return (-1);
+		return (0);
+	}
 	while (*str >= '0' && *str <= '9')
 		res = res * 10 + *str++ - '0';
 	if ((res == MAX_LONG && !(*str)) || res > MAX_LONG)
