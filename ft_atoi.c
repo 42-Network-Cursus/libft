@@ -6,7 +6,7 @@
 /*   By: cwastche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 15:36:23 by cwastche          #+#    #+#             */
-/*   Updated: 2021/07/28 12:47:04 by cwastche         ###   ########.fr       */
+/*   Updated: 2021/07/28 13:00:24 by cwastche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_atoi(const char *str)
 		str++;
 	while (*str >= '0' && *str <= '9')
 		res = res * 10 + *str++ - '0';
-	if (res == MAX_LONG && !(*str) || res > MAX_LONG)
+	if ((res == MAX_LONG && !(*str)) || res > MAX_LONG)
 		return (ft_check_res(res, sign));
 	return ((int)res * sign);
 }
