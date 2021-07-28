@@ -6,11 +6,31 @@
 /*   By: cwastche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 15:36:23 by cwastche          #+#    #+#             */
-/*   Updated: 2021/07/28 13:00:24 by cwastche         ###   ########.fr       */
+/*   Updated: 2021/07/28 14:09:37 by cwastche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_overflow(char *str)
+{
+	int	i;
+
+	i = 0;
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (ft_isdigit(*str))
+	{
+		i++;
+		str++;
+	}
+	if (i > 19)
+		return (1);
+	else
+		return (0);
+}
 
 static int	ft_check_res(unsigned long long int res, int sign)
 {
@@ -28,6 +48,8 @@ int	ft_atoi(const char *str)
 
 	res = 0;
 	sign = 1;
+	if (ft_overflow((char *)str))
+		return (-1);
 	while ((*str >= 9 && *str <= 13) || *str == ' ')
 		str++;
 	if (*str == '-')

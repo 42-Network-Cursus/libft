@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cwastche </var/mail/cwastche>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/28 12:44:46 by cwastche          #+#    #+#              #
-#    Updated: 2021/07/28 12:44:52 by cwastche         ###   ########.fr        #
+#    Created: 2021/07/28 13:37:15 by cwastche          #+#    #+#              #
+#    Updated: 2021/07/28 13:37:48 by cwastche         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,4 +39,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus
