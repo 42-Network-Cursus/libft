@@ -6,7 +6,7 @@
 /*   By: cwastche </var/mail/cwastche>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:05:18 by cwastche          #+#    #+#             */
-/*   Updated: 2021/07/30 22:07:39 by cwastche         ###   ########.fr       */
+/*   Updated: 2021/08/01 08:34:33 by cwastche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
+	unsigned int	len;
 
 	i = 0;
 	if (s != NULL && f != NULL)
 	{
-		while (s[i])
+		len = ft_strlen(s);
+		while (i < len)
 		{
 			f(i, s);
 			i++;
+			s++;
 		}
 	}
 }
