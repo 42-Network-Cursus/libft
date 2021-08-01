@@ -6,7 +6,7 @@
 /*   By: cwastche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 16:37:40 by cwastche          #+#    #+#             */
-/*   Updated: 2021/07/17 16:46:33 by cwastche         ###   ########.fr       */
+/*   Updated: 2021/08/01 13:40:01 by cwastche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*cpy;
 	t_list	*tmp;
 
-	cpy = 0;
-	while (lst)
+	cpy = NULL;
+	while (lst && f && del)
 	{
 		tmp = ft_lstnew(f(lst->content));
 		if (!tmp)
