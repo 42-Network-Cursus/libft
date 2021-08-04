@@ -6,7 +6,7 @@
 /*   By: cwastche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 15:48:43 by cwastche          #+#    #+#             */
-/*   Updated: 2021/08/04 11:52:51 by cwastche         ###   ########.fr       */
+/*   Updated: 2021/08/04 11:58:32 by cwastche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char			*ptr;
-	unsigned int	i;
+	char	*str;
+	size_t	i;
 
-	ptr = malloc(size * count);
-	if (ptr == NULL)
+	str = malloc(size * count);
+	if (str == NULL)
 		return (NULL);
 	i = 0;
-	if (ptr)
+	if (str)
 	{
 		while (i < (size * count))
-		{
-			ptr[i] = '\0';
-			i++;
-		}
+			str[i++] = 0;
 	}
-	return (ptr);
+	return (str);
 }
