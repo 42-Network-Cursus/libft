@@ -6,7 +6,7 @@
 /*   By: cwastche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:36:39 by cwastche          #+#    #+#             */
-/*   Updated: 2021/08/01 14:27:37 by cwastche         ###   ########.fr       */
+/*   Updated: 2021/08/04 11:39:53 by cwastche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (ft_strlen(&s[start]) < len)
 		len = ft_strlen(&s[start]);
 	cpy = malloc(sizeof(char) * (len + 1));
-	i = 0;
+	i = -1;
 	if (!cpy)
 		return (0);
-	while (i < len && &s[start + i])
-	{
+	while (++i < len && &s[start + i])
 		cpy[i] = (char)s[start + i];
-		i++;
-	}
 	cpy[i] = 0;
 	return (cpy);
 }
