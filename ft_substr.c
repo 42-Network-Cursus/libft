@@ -24,11 +24,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (ft_strlen(&s[start]) < len)
 		len = ft_strlen(&s[start]);
 	cpy = malloc(sizeof(char) * (len + 1));
-	i = -1;
+	i = 0;
 	if (!cpy)
 		return (NULL);
-	while (++i < len && &s[start + i])
+	while (i < len && &s[start + i])
+	{
 		cpy[i] = (char)s[start + i];
+		i++;
+	}
 	cpy[i] = 0;
 	return (cpy);
 }
