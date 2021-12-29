@@ -22,8 +22,9 @@ BSRCS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
 		ft_lstiter.c ft_lstlast.c ft_lstlast.c ft_lstmap.c ft_lstnew.c \
 		ft_lstsize.c
 
-OBJS = $(SRCS:.c=.o)
-BOBJS = $(BSRCS:.c=.o)
+DIR_OBJ = obj
+OBJS = $(addprefix $(DIR_OBJ)/,$(SRCS:.c=.o))
+BOBJS = $(addprefix $(DIR_OBJ)/,$(BSRCS:.c=.o))
 
 CFLAGS = -Wall -Wextra -Werror
 CC = gcc
@@ -39,11 +40,12 @@ $(NAME) : $(OBJS)
 bonus : $(BOBJS)
 	$(AR) $(NAME) $^
 
-%.o : %.c $(HEAD)
+$(DIR_OBJ)/%.o : %.c $(HEAD)
+	@mkdir -p $(DIR_OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	rm -rf $(OBJS) $(BOBJS)
+	rm -rf $(OBJS) $(BOBJS) $(DIR_OBJ)
 
 fclean : clean
 	rm -rf $(NAME)
